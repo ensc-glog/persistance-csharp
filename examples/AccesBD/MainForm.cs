@@ -22,8 +22,8 @@ namespace AccesBD
         {
             MySqlConnection connexion = Connecter();
 
-            MySqlCommand cmd = new MySqlCommand("SELECT * FROM room where hotel_id=@idHotel", connexion);
-            cmd.Parameters.AddWithValue("@idHotel", 1);
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM room where hotel_id=@IdHotel", connexion);
+            cmd.Parameters.AddWithValue("@IdHotel", 1);
             MySqlDataReader reader = cmd.ExecuteReader();
             if (reader.HasRows)
             {
@@ -47,9 +47,7 @@ namespace AccesBD
 
             connexion.Close();
         }
-
         
-
         private void btnReserverChambre_Click(object sender, EventArgs e)
         {
             MySqlConnection connexion = Connecter();

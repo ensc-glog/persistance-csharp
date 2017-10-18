@@ -18,5 +18,10 @@ namespace LibContexte
             Name = name;
             Rooms = new List<Room>();
         }
+
+        public override string ToString()
+        {
+            return Name + ", " + Rooms.Count + " chambres";
+        }
     }
 }
