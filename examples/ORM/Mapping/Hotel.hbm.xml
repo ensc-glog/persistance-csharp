@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="ORM"
+                   namespace="ORM">
+
+  <class name="Hotel" table="hotel">
+    <id name="Id" column="hotel_id" type="int">
+      <generator class="native"></generator>
+    </id>
+    <property name="Name" column="hotel_name" not-null="true"/>
+    <bag name="Rooms" inverse="true" lazy="true">
+      <key column="hotel_id"/>
+      <one-to-many class="Room"/>
+    </bag>
+  </class>
+  
+</hibernate-mapping>

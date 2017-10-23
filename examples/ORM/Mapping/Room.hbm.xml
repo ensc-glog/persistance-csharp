@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="ORM"
+                   namespace="ORM">
+
+  <class name="Room" table="room">
+    <id name="Id" column="room_id" type="int">
+      <generator class="native"></generator>
+    </id>
+    <property name="Number" column="room_number" not-null="true"/>
+    <property name="Floor" column="room_floor" not-null="true"/>
+    <property name="Empty" column="room_empty" not-null="true"/>
+    <many-to-one name="Hotel" class="Hotel" column="hotel_id"/>
+  </class>
+
+</hibernate-mapping>
