@@ -1,2 +1,2 @@
-Gestion de la persistence en C#
+Gestion de la persistance en C#
 =====
