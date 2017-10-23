@@ -17,8 +17,9 @@ namespace Repository
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            IRoomRepository roomRepository = new TestRoomRepository();
-            Application.Run(new MainForm(roomRepository));
+            IRoomRepository roomRepository = new RoomRepository();
+            IHotelRepository hotelRepository = new HotelRepository(roomRepository);
+            Application.Run(new MainForm(roomRepository, hotelRepository));
         }
     }
 }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.btnListeChambres = new System.Windows.Forms.Button();
+            this.btnListeHotels = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnListeChambres
@@ -42,11 +43,23 @@
             this.btnListeChambres.UseVisualStyleBackColor = true;
             this.btnListeChambres.Click += new System.EventHandler(this.btnListeChambres_Click);
             // 
+            // btnListeHotels
+            // 
+            this.btnListeHotels.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnListeHotels.Location = new System.Drawing.Point(21, 110);
+            this.btnListeHotels.Name = "btnListeHotels";
+            this.btnListeHotels.Size = new System.Drawing.Size(241, 66);
+            this.btnListeHotels.TabIndex = 2;
+            this.btnListeHotels.Text = "Liste des hôtels";
+            this.btnListeHotels.UseVisualStyleBackColor = true;
+            this.btnListeHotels.Click += new System.EventHandler(this.btnListeHotels_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 113);
+            this.ClientSize = new System.Drawing.Size(284, 197);
+            this.Controls.Add(this.btnListeHotels);
             this.Controls.Add(this.btnListeChambres);
             this.Name = "MainForm";
             this.Text = "Repository";
@@ -57,6 +70,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnListeChambres;
+        private System.Windows.Forms.Button btnListeHotels;
     }
 }
 

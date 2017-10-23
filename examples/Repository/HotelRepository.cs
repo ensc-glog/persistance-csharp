@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LibContexte;
 using MySql.Data.MySqlClient;
 
 namespace Repository
 {
-    public class DbHotelRepository : IHotelRepository
+    public class HotelRepository : IHotelRepository
     {
-        public Hotel FindById()
+        private IRoomRepository roomRepository;
+
+        public HotelRepository(IRoomRepository roomRepository)
         {
-            throw new NotImplementedException();
+            this.roomRepository = roomRepository;
         }
 
         public List<Hotel> GetAll()
@@ -20,21 +21,16 @@ namespace Repository
             List<Hotel> hotels = new List<Hotel>();
 
             MySqlConnection connexion = Connecter();
-            MySqlCommand cmdHotel = new MySqlCommand("SELECT * FROM hotel", connexion);
-            MySqlDataReader readerHotel = cmdHotel.ExecuteReader();
-            while (readerHotel.Read())
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM hotel", connexion);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
             {
-                //TODO
-                MySqlCommand cmdRoom = new MySqlCommand("SELECT * FROM room WHERE hotel_id=@IdHotel", connexion);
-                MySqlDataReader readerRoom = cmdRoom.ExecuteReader();
-                while (readerHotel.Read())
-                {
-                    
-                }
-                Hotel hotel = new Hotel(readerHotel["hotel_name"].ToString());
+                Hotel hotel = new Hotel(reader["hotel_name"].ToString());
+                hotel.Id = Convert.ToInt32(reader["hotel_id"]);
+                hotel.Rooms = roomRepository.FindAllByHotelId(hotel.Id);
                 hotels.Add(hotel);
             }
-            readerHotel.Close();
+            reader.Close();
             connexion.Close();
 
             return hotels;

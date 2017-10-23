@@ -5,8 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 
-using LibContexte;
-
 namespace Repository
 {
     class RoomRepository : IRoomRepository
@@ -22,6 +20,7 @@ namespace Repository
             while (reader.Read())
             {
                 Room room = new Room();
+                room.Id = Convert.ToInt32(reader["room_id"]);
                 room.Number = Convert.ToInt32(reader["room_number"]);
                 room.Floor = Convert.ToInt32(reader["room_floor"]);
                 room.Empty = Convert.ToBoolean(reader["room_empty"]);
