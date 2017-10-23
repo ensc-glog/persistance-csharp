@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Les informations générales relatives à un assembly dépendent de 
 // l'ensemble d'attributs suivant. Changez les valeurs de ces attributs pour modifier les informations
 // associées à un assembly.
-[assembly: AssemblyTitle("LibContexte")]
+[assembly: AssemblyTitle("NHibernate")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("LibContexte")]
+[assembly: AssemblyProduct("NHibernate")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Le GUID suivant est pour l'ID de la typelib si ce projet est exposé à COM
-[assembly: Guid("8df27a2f-bf1b-4cd9-bfb1-e1840dfe4491")]
+[assembly: Guid("416e450d-95ab-4c6d-bbd3-7e06b148f2f7")]
 
 // Les informations de version pour un assembly se composent des quatre valeurs suivantes :
 //
