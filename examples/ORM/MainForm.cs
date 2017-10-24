@@ -45,5 +45,35 @@ namespace ORM
             MessageBox.Show(message, "Liste des chambres");
         }
 
+        private void btnNbChambres_Click(object sender, EventArgs e)
+        {
+            int nbChambres = (int) session.CreateQuery("select count(*) from Room").UniqueResult<long>();
+            MessageBox.Show("La base de données contient " + nbChambres + " chambres(s)", "Nombre de chambres");
+        }
+
+        private void btnAjoutChambre_Click(object sender, EventArgs e)
+        {
+            Hotel hotel = session.Query<Hotel>().SingleOrDefault<Hotel>();
+
+            Room room = new Room();
+            room.Hotel = hotel;
+            room.Number = 6667;
+            room.Floor = 4;
+            
+            session.SaveOrUpdate(room);
+            session.Flush();
+
+            MessageBox.Show("Chambre ajoutée, Id : " + room.Id);
+
+            room.Empty = false;
+
+            session.SaveOrUpdate(room);
+            session.Flush();
+
+            session.Delete(room);
+            session.Flush();
+
+            MessageBox.Show("Chambre supprimée");
+        }
     }
 }
