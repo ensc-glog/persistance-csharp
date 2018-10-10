@@ -59,21 +59,25 @@ namespace ORM
             room.Hotel = hotel;
             room.Number = 6667;
             room.Floor = 4;
-            
+            hotel.Rooms.Add(room);
+
+            session.SaveOrUpdate(hotel);
             session.SaveOrUpdate(room);
             session.Flush();
 
-            MessageBox.Show("Chambre ajoutée, Id : " + room.Id);
+            Console.WriteLine("Chambre ajoutée, Id : " + room.Id);
 
             room.Empty = false;
 
             session.SaveOrUpdate(room);
             session.Flush();
 
+            Console.WriteLine("Chambre modifiée");
+
             session.Delete(room);
             session.Flush();
 
-            MessageBox.Show("Chambre supprimée");
+            Console.WriteLine("Chambre supprimée");
         }
     }
 }

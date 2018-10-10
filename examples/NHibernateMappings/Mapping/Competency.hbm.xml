@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="NHibernateMappings"
+                   namespace="NHibernateMappings">
+
+  <class name="Competency" table="competency">
+    <id name="Id" column="comp_id" type="int">
+      <generator class="native"></generator>
+    </id>
+    <property name="Name" column="comp_name" not-null="true"/>
+    <bag name="Persons" inverse="true" table="Person_Competency">
+      <key column="comp_id"/>
+      <many-to-many class="Person" column="pers_id"/>
+    </bag>
+  </class>
+
+</hibernate-mapping>

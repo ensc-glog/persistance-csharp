@@ -11,13 +11,12 @@
       NHibernate.Driver.MySqlDataDriver
     </property>
     <property name="connection.connection_string">
-      Server=localhost;Database=hoteldb;User ID=utilHotel;Password=secret;
+      Server=localhost;Database=persons;User ID=persons_user;Password=secret;
     </property>
     <property name="dialect">
       NHibernate.Dialect.MySQL5Dialect
     </property>
-    <property name="show_sql">true</property>
     <!-- mapping files -->
-    <mapping assembly="ORM" />
+    <mapping assembly="NHibernateMappings" />
   </session-factory>
 </hibernate-configuration>
