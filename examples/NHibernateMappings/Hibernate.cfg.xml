@@ -16,6 +16,7 @@
     <property name="dialect">
       NHibernate.Dialect.MySQL5Dialect
     </property>
+    <property name="show_sql">true</property>
     <!-- mapping files -->
     <mapping assembly="NHibernateMappings" />
   </session-factory>
